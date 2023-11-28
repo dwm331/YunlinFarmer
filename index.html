@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雲林小農快速連結</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1em 0;
+    }
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1em;
+    }
+
+    button {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-bottom: 0.5em;
+    }
+
+    button span {
+      margin-bottom: 0.3em;
+      display: block;
+    }
+
+    button:hover {
+      background-color: #ddd;
+    }
+
+    /* RWD: 改變按鈕的樣式，以適應小螢幕 */
+    @media (max-width: 600px) {
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>雲林小農快速連結</h1>
+  </header>
+  <nav id="siteList">
+    <!-- 網站清單將透過 JavaScript 動態生成 -->
+  </nav>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // 這裡的網站名稱和網址可以替換為您的實際資訊
+      const websites = [
+        { name: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61554014491261&mibextid=LQQJ4d' },
+        { name: 'Line', url: 'https://lin.ee/3Wp8svO' },
+        { name: '官網', url: '#'},
+      ];
+
+      const nav = document.getElementById('siteList');
+
+      // 動態生成清單
+      websites.forEach(site => {
+        const button = document.createElement('button');
+
+        const span = document.createElement('span');
+        span.textContent = site.name;
+
+        button.appendChild(span);
+        button.addEventListener('click', function () {
+          window.location.href = site.url;
+        });
+
+        nav.appendChild(button);
+      });
+    });
+  </script>
+</body>
+</html>
